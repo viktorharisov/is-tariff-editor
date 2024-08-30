@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /** @var yii\web\View $this */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Tariffs';
+$this->title = 'Тарифы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -19,10 +19,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Tariff', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать тариф', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
 </div>
+<!--ajax-->
 <script>
     function updateSpeed(element) {
         var id = $(element).data('id');

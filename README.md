@@ -13,4 +13,18 @@
 
 - **Фреймворк**: Yii2
 - **База данных**: SQLite
-- **Инструменты**: Composer, OpenServer, PhpStorm, DataGrip
+- **Инструменты**: Composer, Docker, PhpStorm, DataGrip
+
+## Установка
+1. **Клонируйте репозиторий**
+```
+   git clone https://github.com/viktorharisov/is-tariff-editor.git
+```
+   
+2. **Запустите Docker Compose**
+```
+docker-compose up -d
+```
+3. **Откройте приложение в браузере**
+
+   Перейдите по адресу http://localhost:8000 в вашем браузере.

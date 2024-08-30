@@ -17,7 +17,11 @@ $config = [
 //            'showScriptName' => false,
 //            'enableStrictParsing' => false,
 //            'rules' => [
-//                // ...
+//                '' => 'tariff/index',
+//            'tariff/<id:\d+>' => 'tariff/view',
+//            'tariff/create' => 'tariff/create',
+//            'tariff/update/<id:\d+>' => 'tariff/update',
+//            'tariff/delete/<id:\d+>' => 'tariff/delete',
 //            ],
 //        ],
         'request' => [
@@ -50,17 +54,10 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
     ],
     'params' => $params,
     'defaultRoute' => 'tariff/index',
+    'language' => 'ru-RU',
 ];
 
 if (YII_ENV_DEV) {
