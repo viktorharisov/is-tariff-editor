@@ -1,8 +1,8 @@
 services:
   php:
-    image: yiisoftware/yii2-php:8.1-apache
-    volumes:
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      - ./:/app:delegated
+    build: .
     ports:
-      - '8000:80'
+      - "8000:80"
+    volumes:
+      - ./:/app
+    command: bash -c "composer install && apache2-foreground"

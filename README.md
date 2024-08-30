@@ -19,10 +19,12 @@
 1. **Клонируйте репозиторий**
 ```
    git clone https://github.com/viktorharisov/is-tariff-editor.git
+   cd is-tariff-editor
 ```
    
 2. **Запустите Docker Compose**
 ```
+docker-compose build
 docker-compose up -d
 ```
 3. **Откройте приложение в браузере**
