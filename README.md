@@ -15,7 +15,7 @@
 - **База данных**: SQLite
 - **Инструменты**: Composer, Docker, PhpStorm, DataGrip
 
-## Установка
+## Установка с Docker
 1. **Клонируйте репозиторий**
 ```
    git clone https://github.com/viktorharisov/is-tariff-editor.git
