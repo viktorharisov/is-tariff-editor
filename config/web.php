@@ -12,6 +12,14 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+//        'urlManager' => [
+//            'enablePrettyUrl' => true,
+//            'showScriptName' => false,
+//            'enableStrictParsing' => false,
+//            'rules' => [
+//                // ...
+//            ],
+//        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'X_1Ak2l7Jm4_OGiwsFNgO8eBd8687Zqa',
@@ -52,6 +60,7 @@ $config = [
         */
     ],
     'params' => $params,
+    'defaultRoute' => 'tariff/index',
 ];
 
 if (YII_ENV_DEV) {

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "tariff".
@@ -12,7 +13,7 @@ use Yii;
  * @property float $price
  * @property int $speed
  */
-class Tariff extends \yii\db\ActiveRecord
+class Tariff extends ActiveRecord
 {
     /**
      * {@inheritdoc}

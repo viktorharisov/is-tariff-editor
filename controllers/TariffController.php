@@ -5,9 +5,12 @@ namespace app\controllers;
 use app\models\Tariff;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\db\Exception;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use \yii\web\Response;
 
 /**
  * TariffController implements the CRUD actions for Tariff model.
@@ -74,7 +77,8 @@ class TariffController extends Controller
     /**
      * Creates a new Tariff model.
      * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
+     * @return string|Response
+     * @throws Exception
      */
     public function actionCreate()
     {
@@ -97,7 +101,7 @@ class TariffController extends Controller
      * Updates an existing Tariff model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
-     * @return string|\yii\web\Response
+     * @return string|Response
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
@@ -113,23 +117,43 @@ class TariffController extends Controller
         ]);
     }
 
+    /**
+     * Обновляет скорость тарифа
+     *
+     * @return void
+     * @throws BadRequestHttpException
+     * @throws NotFoundHttpException
+     */
     public function actionUpdateSpeed()
     {
         $id = Yii::$app->request->post('id');
         $speed = Yii::$app->request->post('speed');
-        $model = Tariff::findOne($id);
+
+        if (!$id) {
+            throw new BadRequestHttpException('Не передан ID');
+        }
+
+        if (!$speed) {
+            throw new BadRequestHttpException('Не передана скорость');
+        }
+
+        $model = $this->findModel($id);
         if ($model) {
             $model->speed = $speed;
             $model->save();
+        } else {
+            throw new NotFoundHttpException('Модель не найдена');
         }
     }
+
+
 
 
     /**
      * Deletes an existing Tariff model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
-     * @return \yii\web\Response
+     * @return Response
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
